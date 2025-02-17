@@ -3,6 +3,7 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 plugins {
     id(libs.plugins.kotlinMultiplatform.get().pluginId)
     id(libs.plugins.androidLibrary.get().pluginId)
+    id(libs.plugins.kotlinSerialization.get().pluginId)
 }
 
 kotlin {
@@ -25,7 +26,15 @@ kotlin {
     
     sourceSets {
         commonMain.dependencies {
-            // put your Multiplatform dependencies here
+            sharedCommonDependencies()
+        }
+
+        androidMain.dependencies {
+            sharedAndroidDependencies()
+        }
+
+        iosMain.dependencies {
+            sharedIosDependencies()
         }
     }
 }

@@ -5,6 +5,7 @@ plugins {
     id(libs.plugins.androidApplication.get().pluginId)
     id(libs.plugins.composeMultiplatform.get().pluginId)
     id(libs.plugins.composeCompiler.get().pluginId)
+    id(libs.plugins.kotlinSerialization.get().pluginId)
 }
 
 kotlin {
@@ -16,19 +17,11 @@ kotlin {
     
     sourceSets {
         androidMain.dependencies {
-            implementation(compose.preview)
-            implementation(libs.androidx.activity.compose)
+            composeAndroidDependencies()
         }
 
         commonMain.dependencies {
-            implementation(compose.runtime)
-            implementation(compose.foundation)
-            implementation(compose.material)
-            implementation(compose.ui)
-            implementation(compose.components.resources)
-            implementation(compose.components.uiToolingPreview)
-            implementation(libs.androidx.lifecycle.viewmodel)
-            implementation(libs.androidx.lifecycle.runtime.compose)
+            composeCommonDependencies()
             implementation(projects.shared)
         }
     }
