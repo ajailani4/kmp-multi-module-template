@@ -1,0 +1,6 @@
+[versions]
+android-compileSdk = "34"
+android-minSdk = "24"
+android-targetSdk = "34"
+android-versionCode = "1"
+android-versionName = "1.0"

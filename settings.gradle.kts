@@ -26,6 +26,10 @@ dependencyResolutionManagement {
         }
         mavenCentral()
     }
+
+    versionCatalogs {
+        create("config").from(files("gradle/config.versions.toml"))
+    }
 }
 
 include(":composeApp")

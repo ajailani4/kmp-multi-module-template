@@ -31,13 +31,15 @@ kotlin {
 }
 
 android {
-    namespace = "com.ajailani.kmpmultimodule.shared"
-    compileSdk = libs.versions.android.compileSdk.get().toInt()
+    namespace = PackageConfig.projectNamespace
+    compileSdk = config.versions.android.compileSdk.get().toInt()
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
     defaultConfig {
-        minSdk = libs.versions.android.minSdk.get().toInt()
+        minSdk = config.versions.android.minSdk.get().toInt()
     }
 }

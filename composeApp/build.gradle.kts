@@ -35,15 +35,15 @@ kotlin {
 }
 
 android {
-    namespace = "com.ajailani.kmpmultimodule"
-    compileSdk = libs.versions.android.compileSdk.get().toInt()
+    namespace = PackageConfig.projectNamespace
+    compileSdk = config.versions.android.compileSdk.get().toInt()
 
     defaultConfig {
-        applicationId = "com.ajailani.kmpmultimodule"
-        minSdk = libs.versions.android.minSdk.get().toInt()
-        targetSdk = libs.versions.android.targetSdk.get().toInt()
-        versionCode = 1
-        versionName = "1.0"
+        applicationId = PackageConfig.applicationId
+        minSdk = config.versions.android.minSdk.get().toInt()
+        targetSdk = config.versions.android.targetSdk.get().toInt()
+        versionCode = config.versions.android.versionCode.get().toInt()
+        versionName = config.versions.android.versionName.get()
     }
     packaging {
         resources {
