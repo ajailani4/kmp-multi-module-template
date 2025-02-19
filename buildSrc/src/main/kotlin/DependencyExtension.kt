@@ -10,10 +10,12 @@ val KotlinDependencyHandler.libs: LibrariesForLibs
 val KotlinDependencyHandler.composeDeps: ComposePlugin.Dependencies
     get() = project.extensions.getByType<ComposeExtension>().dependencies
 
-fun KotlinDependencyHandler.sharedCommonDependencies() {
+fun KotlinDependencyHandler.diDependencies() {
     implementation(project.dependencies.platform(libs.koin.bom))
     implementation(libs.koin.core)
+}
 
+fun KotlinDependencyHandler.networkCommonDependencies() {
     implementation(libs.ktor.client.core)
     implementation(libs.ktor.client.logging)
     implementation(libs.ktor.client.content.negotiation)
@@ -22,11 +24,11 @@ fun KotlinDependencyHandler.sharedCommonDependencies() {
     implementation(libs.kotlinx.serialization.json)
 }
 
-fun KotlinDependencyHandler.sharedAndroidDependencies() {
+fun KotlinDependencyHandler.networkAndroidDependencies() {
     implementation(libs.ktor.client.android)
 }
 
-fun KotlinDependencyHandler.sharedIosDependencies() {
+fun KotlinDependencyHandler.networkIosDependencies() {
     implementation(libs.ktor.client.darwin)
 }
 

@@ -1,9 +1,10 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
+val config: VersionCatalog = the<VersionCatalogsExtension>().named("config")
+
 plugins {
-    id(libs.plugins.kotlinMultiplatform.get().pluginId)
-    id(libs.plugins.androidLibrary.get().pluginId)
-    id(libs.plugins.kotlinSerialization.get().pluginId)
+    id("com.android.library")
+    id("org.jetbrains.kotlin.multiplatform")
 }
 
 kotlin {
@@ -12,7 +13,7 @@ kotlin {
             jvmTarget.set(JvmTarget.JVM_11)
         }
     }
-    
+
     listOf(
         iosX64(),
         iosArm64(),
@@ -23,25 +24,17 @@ kotlin {
             isStatic = true
         }
     }
-    
+
     sourceSets {
         commonMain.dependencies {
-            sharedCommonDependencies()
-        }
-
-        androidMain.dependencies {
-            sharedAndroidDependencies()
-        }
-
-        iosMain.dependencies {
-            sharedIosDependencies()
+            diDependencies()
         }
     }
 }
 
 android {
-    namespace = PackageConfig.projectNamespace
-    compileSdk = config.versions.android.compileSdk.get().toInt()
+    namespace = "${PackageConfig.projectNamespace}.${project.name.replace("-", "_")}"
+    compileSdk = config.findVersion("android-compileSdk").get().toString().toInt()
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
@@ -49,6 +42,6 @@ android {
     }
 
     defaultConfig {
-        minSdk = config.versions.android.minSdk.get().toInt()
+        minSdk = config.findVersion("android-minSdk").get().toString().toInt()
     }
 }

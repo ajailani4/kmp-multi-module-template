@@ -33,4 +33,6 @@ dependencyResolutionManagement {
 }
 
 include(":composeApp")
-include(":shared")
+include(":api:one")
+include(":core:common")
+include(":core:network")

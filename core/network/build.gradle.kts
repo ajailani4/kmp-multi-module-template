@@ -1,0 +1,3 @@
+plugins {
+    `network-convention`
+}

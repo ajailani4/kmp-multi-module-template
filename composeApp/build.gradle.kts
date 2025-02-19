@@ -18,11 +18,13 @@ kotlin {
     sourceSets {
         androidMain.dependencies {
             composeAndroidDependencies()
+            implementation(libs.koin.android)
+            implementation(libs.koin.androidx.compose)
         }
 
         commonMain.dependencies {
             composeCommonDependencies()
-            implementation(projects.shared)
+            implementation(projects.core.common)
         }
     }
 }
