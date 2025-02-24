@@ -1,5 +1,9 @@
+import util.networkAndroidDependencies
+import util.networkCommonDependencies
+import util.networkIosDependencies
+
 plugins {
-    id("base-convention")
+    id("kmp-convention")
     id("kotlinx-serialization")
     id("kotlin-parcelize")
 }

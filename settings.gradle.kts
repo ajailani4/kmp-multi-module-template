@@ -1,3 +1,6 @@
+import java.io.FileInputStream
+import java.util.Properties
+
 rootProject.name = "KMPMultiModule"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
@@ -33,6 +36,13 @@ dependencyResolutionManagement {
 }
 
 include(":composeApp")
-include(":api:one")
-include(":core:common")
-include(":core:network")
+
+Properties().apply {
+    load(FileInputStream(File("$rootDir/module.properties")))
+    entries.forEach {
+        if (it.value.toString().isBlank()) {
+            val moduleKey = it.key.toString().split(".")
+            include("${moduleKey[0]}:${moduleKey[1]}")
+        }
+    }
+}

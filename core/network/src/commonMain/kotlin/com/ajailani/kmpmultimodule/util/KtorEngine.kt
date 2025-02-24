@@ -1,4 +1,4 @@
-package util
+package com.ajailani.kmpmultimodule.util
 
 import io.ktor.client.engine.HttpClientEngine
 

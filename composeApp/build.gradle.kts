@@ -1,4 +1,8 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import util.PackageConfig
+import util.composeAndroidDependencies
+import util.composeCommonDependencies
+import util.diAndroidDependencies
 
 plugins {
     id(libs.plugins.kotlinMultiplatform.get().pluginId)
@@ -18,8 +22,9 @@ kotlin {
     sourceSets {
         androidMain.dependencies {
             composeAndroidDependencies()
-            implementation(libs.koin.android)
-            implementation(libs.koin.androidx.compose)
+            diAndroidDependencies()
+
+            implementation(projects.presentationAndroid.featureOne)
         }
 
         commonMain.dependencies {
@@ -40,19 +45,26 @@ android {
         versionCode = config.versions.android.versionCode.get().toInt()
         versionName = config.versions.android.versionName.get()
     }
+
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
+    }
+
+    buildFeatures {
+        compose = true
     }
 }
 

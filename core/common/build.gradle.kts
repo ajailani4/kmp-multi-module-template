@@ -1,5 +1,5 @@
 plugins {
-    `base-convention`
+    `kmp-convention`
 }
 
 kotlin {

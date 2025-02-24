@@ -1,4 +1,4 @@
-package di
+package com.ajailani.kmpmultimodule.di
 
 import io.ktor.client.HttpClient
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
@@ -8,7 +8,7 @@ import io.ktor.client.plugins.logging.Logging
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 import org.koin.dsl.module
-import util.ktorEngine
+import com.ajailani.kmpmultimodule.util.ktorEngine
 
 val networkModule = module {
     single {

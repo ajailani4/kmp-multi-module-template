@@ -1,3 +1,5 @@
+package util
+
 import org.gradle.accessors.dm.LibrariesForLibs
 import org.gradle.kotlin.dsl.getByType
 import org.jetbrains.compose.ComposeExtension
@@ -10,9 +12,14 @@ val KotlinDependencyHandler.libs: LibrariesForLibs
 val KotlinDependencyHandler.composeDeps: ComposePlugin.Dependencies
     get() = project.extensions.getByType<ComposeExtension>().dependencies
 
-fun KotlinDependencyHandler.diDependencies() {
+fun KotlinDependencyHandler.diCommonDependencies() {
     implementation(project.dependencies.platform(libs.koin.bom))
     implementation(libs.koin.core)
+}
+
+fun KotlinDependencyHandler.diAndroidDependencies() {
+    implementation(libs.koin.android)
+    implementation(libs.koin.androidx.compose)
 }
 
 fun KotlinDependencyHandler.networkCommonDependencies() {
@@ -33,8 +40,15 @@ fun KotlinDependencyHandler.networkIosDependencies() {
 }
 
 fun KotlinDependencyHandler.composeAndroidDependencies() {
-    implementation(composeDeps.preview)
+    implementation(project.dependencies.platform(libs.androidx.compose.bom))
     implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.ui)
+    implementation(libs.androidx.ui.graphics)
+    implementation(libs.androidx.ui.tooling.preview)
+    implementation(libs.androidx.material3)
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.material.extended)
 }
 
 fun KotlinDependencyHandler.composeCommonDependencies() {
