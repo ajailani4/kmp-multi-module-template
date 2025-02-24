@@ -1,0 +1,3 @@
+plugins {
+    `compose-convention`
+}
