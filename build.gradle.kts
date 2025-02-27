@@ -20,7 +20,7 @@ Properties().apply {
 
     entries.forEach {
         val moduleKey = it.key.toString().split(".")
-        modules.add(":${moduleKey[0]}:${moduleKey[1]}")
+        modules.add(if (moduleKey.size == 1) moduleKey[0] else "${moduleKey[0]}:${moduleKey[1]}")
     }
 }
 

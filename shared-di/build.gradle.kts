@@ -1,12 +1,12 @@
 plugins {
-    `api-convention`
+    `kmp-convention`
 }
 
 kotlin {
     sourceSets {
         commonMain.dependencies {
             implementation(projects.core.network)
-            implementation(projects.core.entity)
+            implementation(projects.api.one)
         }
     }
 }

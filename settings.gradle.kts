@@ -42,7 +42,7 @@ Properties().apply {
     entries.forEach {
         if (it.value.toString().isBlank()) {
             val moduleKey = it.key.toString().split(".")
-            include("${moduleKey[0]}:${moduleKey[1]}")
+            include(if (moduleKey.size == 1) moduleKey[0] else "${moduleKey[0]}:${moduleKey[1]}")
         }
     }
 }
