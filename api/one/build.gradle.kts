@@ -1,5 +1,5 @@
 plugins {
-    `api-convention`
+    `network-convention`
 }
 
 kotlin {
