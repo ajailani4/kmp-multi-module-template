@@ -50,7 +50,7 @@ fun ItemDetailScreen(
                                 .fillMaxWidth()
                                 .padding(10.dp)
                         ) {
-                            Text(text = "Id: 123\nName: John")
+                            Text(text = "Id: ${item.id}\nName: ${item.name}")
                         }
                     }
                 }
