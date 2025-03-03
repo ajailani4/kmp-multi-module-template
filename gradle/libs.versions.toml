@@ -17,6 +17,7 @@ kotlin = "2.1.0"
 kotlinxSerialization = "1.8.0"
 ktor = "3.0.3"
 navigationCompose = "2.8.8"
+skie = "0.10.1"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -57,6 +58,7 @@ compose-compiler-plugin = { group = "org.jetbrains.kotlin.plugin.compose", name 
 kotlin-gradle-plugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
 kotlin-serialization-plugin = { group = "org.jetbrains.kotlin", name = "kotlin-serialization", version.ref = "kotlin" }
 kmp-plugin = { group = "org.jetbrains.kotlin.multiplatform", name = "org.jetbrains.kotlin.multiplatform.gradle.plugin", version.ref = "kotlin" }
+touchlab-skie-plugin = { group = "co.touchlab.skie", name = "gradle-plugin", version.ref = "skie" }
 
 [plugins]
 androidApplication = { id = "com.android.application" }
@@ -67,3 +69,4 @@ jetbrainsKotlinJvm = { id = "org.jetbrains.kotlin.jvm" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform" }
 kotlinAndroid = { id = "org.jetbrains.kotlin.android" }
 kotlinSerialization = { id = "org.jetbrains.kotlin.plugin.serialization" }
+touchlabSkie = { id = "co.touchlab.skie" }

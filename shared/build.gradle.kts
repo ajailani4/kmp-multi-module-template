@@ -2,12 +2,11 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import util.PackageConfig
 import util.diCommonDependencies
 
-val config: VersionCatalog = the<VersionCatalogsExtension>().named("config")
-
 plugins {
-    id("com.android.library")
-    id("org.jetbrains.kotlin.multiplatform")
-    id("co.touchlab.skie")
+    id(libs.plugins.kotlinMultiplatform.get().pluginId)
+    id(libs.plugins.androidLibrary.get().pluginId)
+    id(libs.plugins.kotlinSerialization.get().pluginId)
+    id(libs.plugins.touchlabSkie.get().pluginId)
 }
 
 kotlin {
@@ -23,23 +22,30 @@ kotlin {
         iosSimulatorArm64()
     ).forEach { iosTarget ->
         iosTarget.binaries.framework {
+            baseName = "Shared"
             isStatic = true
+
+            // Export modules to iOS app
+            export(projects.core)
+            export(projects.api)
         }
     }
 
     sourceSets {
         commonMain.dependencies {
             diCommonDependencies()
+            api(projects.core.network)
+            api(projects.api.one)
         }
     }
 }
 
 android {
     namespace = "${PackageConfig.projectNamespace}.${project.name.replace("-", "_")}"
-    compileSdk = config.findVersion("android-compileSdk").get().toString().toInt()
+    compileSdk = config.versions.android.compileSdk.get().toInt()
 
     defaultConfig {
-        minSdk = config.findVersion("android-minSdk").get().toString().toInt()
+        minSdk = config.versions.android.minSdk.get().toInt()
     }
 
     compileOptions {

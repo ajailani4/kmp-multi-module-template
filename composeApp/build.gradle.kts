@@ -29,7 +29,7 @@ kotlin {
 
         commonMain.dependencies {
             composeCommonDependencies()
-            implementation(projects.sharedDi)
+            implementation(projects.shared)
         }
     }
 }

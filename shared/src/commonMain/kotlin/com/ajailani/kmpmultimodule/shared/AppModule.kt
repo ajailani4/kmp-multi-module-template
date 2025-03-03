@@ -1,4 +1,4 @@
-package com.ajailani.kmpmultimodule.core.common.di
+package com.ajailani.kmpmultimodule.shared
 
 import com.ajailani.kmpmultimodule.api.one.di.apiOneModule
 import com.ajailani.kmpmultimodule.core.network.di.networkModule

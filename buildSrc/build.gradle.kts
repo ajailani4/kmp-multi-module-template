@@ -17,4 +17,5 @@ dependencies {
     implementation(libs.kmp.plugin)
     implementation(libs.kotlin.gradle.plugin)
     implementation(libs.kotlin.serialization.plugin)
+    implementation(libs.touchlab.skie.plugin)
 }

@@ -1,7 +1,8 @@
-package com.ajailani.kmpmultimodule
+package com.ajailani.kmpmultimodule.shared
 
-import com.ajailani.kmpmultimodule.core.common.di.appModule
+import com.ajailani.kmpmultimodule.api.one.domain.use_case.GetItemUseCase
 import org.koin.core.component.KoinComponent
+import org.koin.core.component.inject
 import org.koin.core.context.startKoin
 
 class DIHelper : KoinComponent {
@@ -10,4 +11,6 @@ class DIHelper : KoinComponent {
             modules(appModule)
         }
     }
+
+    val getItemUseCase by inject<GetItemUseCase>()
 }
