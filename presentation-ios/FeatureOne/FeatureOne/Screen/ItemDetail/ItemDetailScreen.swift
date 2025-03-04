@@ -15,9 +15,7 @@ public struct ItemDetailScreen: View {
             if viewModel.uiState.isLoading {
                 ProgressView()
                     .frame(maxWidth: .infinity, alignment: .center)
-            }
-            
-            if let item = viewModel.uiState.item {
+            } else if let item = viewModel.uiState.item {
                 HStack {
                     Text("Id: \(item.id)\nName: \(item.name)")
                         .foregroundStyle(.white)
