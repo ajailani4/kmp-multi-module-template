@@ -2,7 +2,7 @@ package com.ajailani.kmpmultimodule
 
 import android.app.Application
 import com.ajailani.kmpmultimodule.shared.appModule
-import com.ajailani.presentation_android.feature_one.di.featureOneViewModelModule
+import com.ajailani.presentation_android.feature_item.di.featureOneViewModelModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin

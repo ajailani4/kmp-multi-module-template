@@ -34,7 +34,7 @@ val networkModule = module {
             defaultRequest {
                 url {
                     protocol = URLProtocol.HTTP
-                    host = "10.54.149.101"
+                    host = "10.0.2.2"
                     path("example/v1/")
                 }
             }

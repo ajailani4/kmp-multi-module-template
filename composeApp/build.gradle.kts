@@ -24,7 +24,7 @@ kotlin {
             composeAndroidDependencies()
             diAndroidDependencies()
 
-            implementation(projects.presentationAndroid.featureOne)
+            implementation(projects.presentationAndroid.featureItem)
         }
 
         commonMain.dependencies {
