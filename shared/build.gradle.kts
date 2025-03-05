@@ -35,6 +35,7 @@ kotlin {
         commonMain.dependencies {
             diCommonDependencies()
             api(projects.core.network)
+            api(projects.core.entity)
             api(projects.api.item)
         }
     }
